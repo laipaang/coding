@@ -12,16 +12,16 @@ __global__ void matmul(float* A, float* B, float*C, int M, int N, int K) {
 
     // A的row行k列 B的k行col列
     float acc = 0;
-    for (int k=0; k<K; ++k) {
-        acc = A[row*K+k] * B[k*N+col];
+    for (int k = 0; k < K; ++k) {
+        acc = A[row * K + k] * B[k * N + col];
     }
 
     // C的row行col列
-    C[row*N+col] = out;
+    C[row * N + col] = out;
 }
 
 // 向上取整的除法
-#define CEIL_DIV(a, b) ((a+b-1)/b)
+#define CEIL_DIV(a, b) ((a + b - 1) / b)
 
 int main() {
     // 初始化矩阵A，B，C
